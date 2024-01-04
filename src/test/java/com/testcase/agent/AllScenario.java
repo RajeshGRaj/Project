@@ -55,6 +55,7 @@ public class AllScenario extends Base_Class{
 	AgentTC012 tc012;
 	AgentTC013 tc013;
 	AgentTC014 tc014;
+	AgentTC015 tc015;
 	
 	public void KillChrome() throws IOException, InterruptedException {
 		driver.quit();
@@ -90,8 +91,7 @@ public class AllScenario extends Base_Class{
 		tc012 = new AgentTC012();
 		tc013 = new AgentTC013();
 		tc014 = new AgentTC014();
-		
-		
+		tc015 = new AgentTC015();
 		
 	}
 
@@ -221,15 +221,15 @@ public class AllScenario extends Base_Class{
 					context.setAttribute("fileName", "Logout");
 				break;
 				
-				/*case "TC015":
+				case "TC015":
 					context.setAttribute("fileName", "Login");
 					Login();
-					tc015.verifyQuickReplyTooltip();
+					tc015.verify();
 					Logout();
 					context.setAttribute("fileName", "Logout");
 				break;
 				
-				case "TC016":
+				/*case "TC016":
 					context.setAttribute("fileName", "Login");
 					Login();
 					tc016.verifyWelcomePageDisplaye();

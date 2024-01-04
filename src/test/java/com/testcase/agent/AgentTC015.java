@@ -5,7 +5,7 @@ import static org.testng.Assert.assertEquals;
 import java.awt.AWTException;
 import java.io.IOException;
 
-public class AgentTC008 extends AllScenario {
+public class AgentTC015 extends AllScenario {
 	
 	public void verify() throws IOException, InterruptedException, AWTException {
 		
@@ -36,8 +36,20 @@ public class AgentTC008 extends AllScenario {
 		routedchat.enterComment(fakedata.getQuery());
 		routedchat.clickSubmit();
 		
-		assertEquals(ToastDisplayed("Chat closed successfully..."), true);
+		ToastDisplayed("Chat closed successfully...");
+		//Agent End
 		
+		//Enduser
+		SwitchToTab(1);
+		SwitchToFrame();
+		webchat.clickFeedbackEmoji();
+		webchat.clickFeedbackSubmit();
+		Thread.sleep(2000);
+		assertEquals(GetElementText(webchat.L_feedback_submission_greeting), "Feedback submitted");
+		//End
+		
+		//Agent
+		SwitchToTab(0);
 	}
 
 }

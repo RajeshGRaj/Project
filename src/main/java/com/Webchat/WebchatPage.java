@@ -1,7 +1,9 @@
 package com.Webchat;
 
+import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.BasePackage.Base_Class;
 import com.aventstack.extentreports.Status;
@@ -172,7 +174,31 @@ public class WebchatPage extends Base_Class {
 	}
 	
 	
+	public By L_feedback_emoji = By.xpath("//mat-icon[contains(normalize-space(),'sentiment_very_satisfied')]");
+	public void clickFeedbackEmoji() {
+		try {
+			 List<WebElement> total = driver.findElements(L_feedback_emoji);
+			for(WebElement ele : total) {
+				ele.click();
+				Thread.sleep(1000);
+			}
+			ExtentTestManager.getTest().log(Status.PASS, "Emoji button clicked");
+		} catch (Exception e) {
+			ExtentTestManager.getTest().log(Status.FAIL, "Emoji button not clicked");
+		}
+	}
 	
+	
+	public By L_feedback_submit = By.xpath("(//button[.='Submit'])[1]");
+	public By L_feedback_submission_greeting = By.xpath("(//div[contains(@class,'normal-msg')])[2]");
+	public void clickFeedbackSubmit() {
+		try {
+			click(L_feedback_submit);
+			ExtentTestManager.getTest().log(Status.PASS, "Feedback Submit button clicked");
+		} catch (Exception e) {
+			ExtentTestManager.getTest().log(Status.FAIL, "Feedback Submit button not clicked");
+		}
+	}
 	
 	
 }

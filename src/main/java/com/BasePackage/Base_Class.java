@@ -136,7 +136,7 @@ public class Base_Class {
 
 		case "CHROME":
 			//System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
-			System.setProperty("webdriver.chrome.driver", "E:\\KeenanIVOS\\OratorLiveChat\\Keenan_Cache\\src\\test\\resources\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "E:\\cms_User\\src\\test\\resources\\chromedriver.exe");
 			//WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			DesiredCapabilities capabilities = new DesiredCapabilities();
