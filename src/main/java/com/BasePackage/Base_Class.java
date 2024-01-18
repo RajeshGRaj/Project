@@ -135,8 +135,8 @@ public class Base_Class {
 		switch (Browser.toUpperCase()) {
 
 		case "CHROME":
-			//System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
-			System.setProperty("webdriver.chrome.driver", "E:\\cms_User\\src\\test\\resources\\chromedriver.exe");
+			System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\DELL\\Documents\\cms_User\\cms_User\\src\\test\\resources\\chromedriver.exe");
 			//WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			DesiredCapabilities capabilities = new DesiredCapabilities();

@@ -1,4 +1,4 @@
-package com.testcase.agent;
+package com.testcase.supervisor;
 
 import java.awt.AWTException;
 import java.io.File;
@@ -15,12 +15,14 @@ import org.testng.asserts.SoftAssert;
 
 import com.Agent.RoutedChatPage;
 import com.BasePackage.Base_Class;
+import com.Supervisor.ChatPage;
 import com.Utility.ExcelReader;
 import com.Utility.FakeData;
 import com.Utility.Log;
 import com.Webchat.WebchatPage;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
+import com.common.LoginPage;
 import com.common.ProfilePage;
 import com.extentReports.ExtentManager;
 import com.extentReports.ExtentTestManager;
@@ -40,23 +42,14 @@ public class AllScenario extends Base_Class{
 	ProfilePage profile = new ProfilePage();
 	RoutedChatPage routedchat = new RoutedChatPage();
 	WebchatPage webchat = new WebchatPage();
+	LoginPage login = new LoginPage();
+	ChatPage supervisorChat = new ChatPage();
 
-	AgentTC001 tc001;
-	AgentTC002 tc002;
-	AgentTC003 tc003;
-	AgentTC004 tc004;
-	AgentTC005 tc005;
-	AgentTC006 tc006;
-	AgentTC007 tc007;
-	AgentTC008 tc008;
-	AgentTC009 tc009;
-	AgentTC010 tc010;
-	AgentTC011 tc011;
-	AgentTC012 tc012;
-	AgentTC013 tc013;
-	AgentTC014 tc014;
-	AgentTC015 tc015;
-	AgentTC016 tc016;
+	SupervisorTC001 tc001;
+	SupervisorTC002 tc002;
+	SupervisorTC003 tc003;
+	SupervisorTC004 tc004;
+	SupervisorTC005 tc005;
 	
 	public void KillChrome() throws IOException, InterruptedException {
 		driver.quit();
@@ -71,29 +64,18 @@ public class AllScenario extends Base_Class{
 	
 	@BeforeClass
 	public void reference() throws InterruptedException, IOException {
-		excel = new ExcelReader("Agent");
+		excel = new ExcelReader("Supervisor");
 		log = new Log();
 		TestListener = new TestListener();
 		screenShot = new com.Utility.ScreenShot(null);
 		Base_Class = new Base_Class();
 		softAssertion = new SoftAssert();
 		
-		tc001 = new AgentTC001();
-		tc002 = new AgentTC002();
-		tc003 = new AgentTC003();
-		tc004 = new AgentTC004();
-		tc005 = new AgentTC005();
-		tc006 = new AgentTC006();
-		tc007 = new AgentTC007();
-		tc008 = new AgentTC008();
-		tc009 = new AgentTC009();
-		tc010 = new AgentTC010();
-		tc011 = new AgentTC011();
-		tc012 = new AgentTC012();
-		tc013 = new AgentTC013();
-		tc014 = new AgentTC014();
-		tc015 = new AgentTC015();
-		tc016 = new AgentTC016();
+		tc001 = new SupervisorTC001();
+		tc002 = new SupervisorTC002();
+		tc003 = new SupervisorTC003();
+		tc004 = new SupervisorTC004();
+		tc005 = new SupervisorTC005();
 		
 	}
 
@@ -114,7 +96,7 @@ public class AllScenario extends Base_Class{
 				case "TC001":
 					context.setAttribute("fileName", "Login");
 					Login();
-					tc001.verifyChatRequestReceived();
+					tc001.verify();
 					Logout();
 					context.setAttribute("fileName", "Logout");
 				break;
@@ -122,7 +104,7 @@ public class AllScenario extends Base_Class{
 				case "TC002":
 					context.setAttribute("fileName", "Login");
 					Login();
-					tc002.verifyChatRequestReceived();
+					tc002.verify();
 					Logout();
 					context.setAttribute("fileName", "Logout");
 				break;
@@ -151,7 +133,7 @@ public class AllScenario extends Base_Class{
 					context.setAttribute("fileName", "Logout");
 				break;
 				
-				case "TC006":
+				/*case "TC006":
 					context.setAttribute("fileName", "Login");
 					Login();
 					tc006.verify();
@@ -231,15 +213,15 @@ public class AllScenario extends Base_Class{
 					context.setAttribute("fileName", "Logout");
 				break;
 				
-				case "TC016":
+				/*case "TC016":
 					context.setAttribute("fileName", "Login");
 					Login();
-					tc016.verify();
+					tc016.verifyWelcomePageDisplaye();
 					Logout();
 					context.setAttribute("fileName", "Logout");
 				break;
 				
-				/*case "TC017":
+				case "TC017":
 					context.setAttribute("fileName", "Login");
 					Login();
 					tc017.verifyFAQIsDisplayedIfEnabled();

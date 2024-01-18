@@ -341,5 +341,41 @@ public class RoutedChatPage extends Base_Class {
 		}
 	}
 	
+	public By L_escalation_select_supervisor = By.xpath("(//mat-select)[1]");
+	public void selectEscalationSupervisor(String supervisor) {
+		try {
+			By L_escalation_supervisor_opt = By.xpath("//span[contains(normalize-space(),'"+supervisor+"')]");
+			click(L_escalation_select_supervisor);
+			click(L_escalation_supervisor_opt);
+			ExtentTestManager.getTest().log(Status.PASS, "Supervisor Selected");
+		} catch (Exception e) {
+			ExtentTestManager.getTest().log(Status.FAIL, "Supervisor Not Selected");
+		}
+	}
+	
+	public By L_escalation_category = By.xpath("(//mat-select)[2]");
+	public void selectEscalationCategory(String category) {
+		try {
+			By L_escalation_category_opt = By.xpath("//span[contains(normalize-space(),'"+category+"')]");
+			click(L_escalation_category);
+			click(L_escalation_category_opt);
+			ExtentTestManager.getTest().log(Status.PASS, "Escalation Category Selected");
+		} catch (Exception e) {
+			ExtentTestManager.getTest().log(Status.FAIL, "Escalation Category Not Selected");
+		}
+	}
+	
+	public By L_escalation_sub_category = By.xpath("(//mat-select)[3]");
+	public void selectEscalationSubCategory(String subCategory) {
+		try {
+			By L_sub_category_opt = By.xpath("//span[contains(normalize-space(),'"+subCategory+"')]");
+			click(L_escalation_sub_category);
+			click(L_sub_category_opt);
+			ExtentTestManager.getTest().log(Status.PASS, "Escalation Sub Category Selected");
+		} catch (Exception e) {
+			ExtentTestManager.getTest().log(Status.FAIL, "Escalation Sub Category Not Selected");
+		}
+	}
+	
 	
 }
